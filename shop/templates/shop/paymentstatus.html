@@ -1,0 +1,30 @@
+{% extends 'shop/basic.html' %}
+{% block title%} WishDeals Tracker{% endblock %}
+{% block body %}
+<div class="container">
+    {% comment %} {{response}} {% endcomment %}
+    <div class="col my-4">
+
+        <h2>Payment status regarding your order Id {{response.ORDERID}}</h2>
+        
+        {% if response.RESPCODE == '01' %}
+        </h1>
+       <h1>ORDER SUCCESS</h1>
+        {% else %}
+        <h1>ORDER FAILURE</h1>
+        {% endif%}
+        <h5>Total amount :{{response.TXNAMOUNT}}</h5>
+        <h5>payment mode :{{response.PAYMENTMODE}}</h5>
+        <h5>Response message from gateway :{{response.RESPMSG}}</h5>
+
+    </div>
+
+</div>
+<div class="container">
+<button type="button" class="btn btn-primary"> <a style="text-decoration: none; color:#FFFFFF" href="http://127.0.0.1:8000/shop/"> Go back to home page</a></button>
+</div>
+{% endblock %}
+{% block js %}
+<script>
+</script>
+{% endblock %}
